@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextfieldViewController: UIViewController {
+class TextfieldViewController: UIViewController, UITextFieldDelegate {
 
     var dateStr: String!
     var wthStr: String!
@@ -27,6 +27,10 @@ class TextfieldViewController: UIViewController {
             weatherLabel.text = wthStr
             moodLabel.text = moodStr
         }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toTextView"
